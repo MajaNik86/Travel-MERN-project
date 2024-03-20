@@ -18,11 +18,11 @@ const closeDrowerHandler=()=>{
 
   return <>
  {drawerIsOpen && <Backdrop onClick={closeDrowerHandler}/>}
-  { drawerIsOpen && 
-  <SideDrawer onClick={closeDrowerHandler}> <nav className='.main-navigation__drawer-nav'>
+ 
+  <SideDrawer show={drawerIsOpen} onClick={closeDrowerHandler}> <nav className='.main-navigation__drawer-nav'>
     <NavLinks/>
     </nav>
-  </SideDrawer> }
+  </SideDrawer> 
    <MainHeader>
     <button className='main-navigation__menu-btn' onClick={openDrawerHandler}>
         <span/>
