@@ -4,7 +4,7 @@ import PlaceItem from "./PlaceItem";
 import "./PlaceList.css";
 
 const PlaceList = (props) => {
-  if (props.items === 0) {
+  if (props.items.length === 0) {
     return (
       <div className="place-list center">
         <Card>
