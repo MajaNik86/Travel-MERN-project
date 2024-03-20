@@ -9,20 +9,22 @@ import './MainNavigation.css'
 export const MainNavigation = () => {
 const [drawerIsOpen,setDrowerIsOpen]=useState(false);
 
-const openDrawer=()=>{
+const openDrawerHandler=()=>{
   setDrowerIsOpen(true);
 }
-const closeDrower=()=>{
+const closeDrowerHandler=()=>{
   setDrowerIsOpen(false);
 }
 
   return <>
- {drawerIsOpen && <Backdrop onClick={closeDrower}/>}
-  { drawerIsOpen && <SideDrawer className='.main-navigation__drawer-nav'>
+ {drawerIsOpen && <Backdrop onClick={closeDrowerHandler}/>}
+  { drawerIsOpen && 
+  <SideDrawer onClick={closeDrowerHandler}> <nav className='.main-navigation__drawer-nav'>
     <NavLinks/>
+    </nav>
   </SideDrawer> }
    <MainHeader>
-    <button className='main-navigation__menu-btn' onClick={openDrawer}>
+    <button className='main-navigation__menu-btn' onClick={openDrawerHandler}>
         <span/>
         <span/>
         <span/>
