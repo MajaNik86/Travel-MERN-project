@@ -21,13 +21,30 @@ const PlaceItem = (props) => {
         onCancel={closeMapHandler}
         header={props.address}
         contentClass="place-item__modal-content"
-        footerClass='place-item__modal-action'
+        footerClass="place-item__modal-action"
         footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
       >
+        {/* need to add google maps API to better use the map */}
         <div className="map-container">
-          <h2>THE MAAAP!</h2>
+          <iframe
+            title="map"
+            width="100%"
+            height="80%"
+            src={
+              "https://maps.google.com/maps?q=" +
+              props.coordinates.lat.toString() +
+              "," +
+              props.coordinates.lng.toString() +
+              "&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            }
+          ></iframe>
+          <script
+            type="text/javascript"
+            src="https://embedmaps.com/google-maps-authorization/script.js?id=5a33be79e53caf0a07dfec499abf84b7b481f165"
+          ></script>
         </div>
-        </Modal>
+  
+      </Modal>
       <li className="place-item">
         <Card className="place-item__content">
           <div className="place-item__image">
@@ -39,7 +56,9 @@ const PlaceItem = (props) => {
             <p>{props.description}</p>
           </div>
           <div className="place-item__actions">
-            <Button inverse onClick={openMapHandler}>VIEW ON MAP</Button>
+            <Button inverse onClick={openMapHandler}>
+              VIEW ON MAP
+            </Button>
             <Button to={`/places/${props.id}`}>EDIT</Button>
             <Button danger>DELETE</Button>
           </div>
